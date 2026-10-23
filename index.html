@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walterson | Indie Game Developer</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =========================================================
+     CABEÇALHO / MENU FIXO
+     Fica sempre visível no topo da página (ver "position:fixed"
+     em style.css). Os links abaixo usam # + o "id" da seção
+     correspondente, e o próprio navegador rola a página até lá.
+     ========================================================= -->
+<header>
+
+    <div class="logo">
+        WALTERSOM
+    </div>
+
+    <nav>
+
+        <a href="#home">Home</a>
+
+        <a href="#sobre">Sobre</a>
+
+        <a href="#jogos">Jogos</a>
+
+        <a href="#desenvolvimento">Em Desenvolvimento</a>
+
+        <a href="#contato">Contato</a>
+
+    </nav>
+
+</header>
+
+<!-- =========================================================
+     SEÇÃO HOME - Banner/carrossel de tela cheia
+     Cada ".hero-slide" é uma "tela" do carrossel. O script.js
+     troca automaticamente entre elas a cada 5 segundos e move
+     o ".hero-track" (que contém todos os slides) para o lado.
+     ========================================================= -->
+<section id="home" class="hero">
+
+    <div class="hero-track">
+
+        <!-- Slide 1: apresentação geral -->
+        <div class="hero-slide">
+            <img class="hero-fundo" src="imagens/hero1.png" alt="" onerror="this.style.display='none'">
+            <div class="hero-conteudo">
+                <h1>Bem Vindo</h1>
+                <p>Criando experiências incríveis, se divertindo.</p>
+            </div>
+        </div>
+
+        <!-- Slide 2: Pig Pong 2D -->
+        <div class="hero-slide">
+            <img class="hero-fundo" src="imagens/PigPong.gif" alt="" onerror="this.style.display='none'">
+            <div class="hero-conteudo">
+                <h1>Pig Pong 2D</h1>
+                <p>Duelo rápido e divertido. Mostre sua pontaria!</p>
+                <a href="#jogos" class="botao">Ver jogo</a>
+            </div>
+        </div>
+
+        <!-- Slide 3: Iron Vanguard -->
+        <div class="hero-slide">
+            <!-- Fundo animado (era um GIF de 15 MB, convertido em vídeo leve que toca sozinho, sem som, em loop) -->
+            <video class="hero-fundo" src="imagens/iron-vanguard-banner.mp4" poster="imagens/iron-vanguard-banner.jpg" autoplay muted loop playsinline preload="auto"></video>
+            <div class="hero-conteudo">
+                <h1>Iron Vanguard</h1>
+                <p>Construa sua base e domine a ilha com seus tanques.</p>
+                <a href="#jogos" class="botao">Ver jogo</a>
+            </div>
+        </div>
+
+        <!-- Slide 4: The Guardian -->
+        <div class="hero-slide">
+            <!-- Fundo animado (era um GIF de 46 MB, convertido em vídeo leve que toca sozinho, sem som, em loop) -->
+            <video class="hero-fundo" src="imagens/the-guardian-banner.mp4" poster="imagens/the-guardian-banner.jpg" autoplay muted loop playsinline preload="auto"></video>
+            <div class="hero-conteudo">
+                <h1>The Guardian</h1>
+                <p>Defenda, explore e sobreviva no espaço.</p>
+                <a href="#jogos" class="botao">Ver jogo</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bolinhas de navegação do carrossel do banner.
+         "data-index" indica a qual slide (posição, começando em 0)
+         cada bolinha corresponde; o script.js usa esse número. -->
+    <div class="hero-dots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+        <span class="dot" data-index="3"></span>
+    </div>
+
+</section>
+
+<!-- =========================================================
+     SEÇÃO SOBRE MIM
+     Foto de perfil à esquerda + texto de apresentação à direita.
+     Se "imagens/perfil.jpg" não existir, o onerror abaixo
+     adiciona a classe "sem-foto", que faz o CSS mostrar um
+     ícone de câmera no lugar da foto (ver style.css).
+     ========================================================= -->
+<section id="sobre">
+
+    <!-- No computador, a imagem já traz o título e o texto "Sobre Mim", então
+         o <h2> e o parágrafo abaixo ficam só "escondidos visualmente" (continuam
+         no HTML para leitores de tela e buscadores). No celular, o texto da
+         imagem ficaria minúsculo: lá aparece só o recorte da foto e o título
+         e o texto de verdade são exibidos (ver style.css). -->
+    <h2 class="sobre-titulo">Sobre Mim</h2>
+
+    <div class="sobre-banner">
+        <img src="imagens/Sobre_Mim.png" alt="Walterson, desenvolvedor indie, em seu setup de jogos">
+    </div>
+
+    <div class="sobre-texto sobre-texto-alt">
+        <p>
+            Olá, eu sou o <strong>Walterson</strong>, desenvolvedor indie apaixonado por criar jogos com a
+            <strong>Godot Engine</strong>. Gosto de unir mecânicas simples com desafios interessantes,
+            sempre buscando uma pegada visual própria e experiências divertidas de se jogar.
+        </p>
+        <p>
+            Estou sempre estudando e evoluindo minhas habilidades, testando novas ideias e transformando
+            conceitos em jogos completos, do primeiro protótipo até o lançamento.
+        </p>
+    </div>
+
+</section>
+
+<!-- =========================================================
+     SEÇÃO MEUS JOGOS
+     Esteira contínua de cards (o script.js move o
+     ".carousel-track" automaticamente da direita para a
+     esquerda). Os 3 primeiros ".jogo-card" são os jogos reais;
+     os 3 últimos (marcados com aria-hidden="true") são cópias
+     idênticas usadas só para o efeito visual de rolagem
+     infinita, sem corte perceptível quando a esteira "reinicia".
+     Ao adicionar/remover um jogo real, lembre de repetir a
+     mesma alteração no bloco de cópias logo abaixo.
+     ========================================================= -->
+<section id="jogos">
+
+    <div class="jogos-header">
+        <h2>Meus Jogos</h2>
+        <span class="jogos-contador">4 TÍTULOS</span>
+    </div>
+
+    <div class="carousel jogos-carousel">
+
+        <div class="carousel-track">
+
+            <!-- ===== Jogos reais, na ordem: The Guardian, Ping Pong 2D, Iron Vanguard, Explosive Foxes ===== -->
+
+            <div class="jogo-card">
+                <div class="jogo-imagem">
+                    <img src="imagens/the-guardian.jpg" alt="The Guardian" onerror="this.style.display='none'">
+                </div>
+                <div class="jogo-info">
+                    <div class="jogo-topo">
+                        <h3>The Guardian</h3>
+                        <span class="badge em-desenvolvimento">Em Desenvolvimento</span>
+                    </div>
+                    <p class="jogo-categoria">Ação / Arcade</p>
+                    <p class="jogo-desc">Jogo 3D de ação em que você controla um pequeno robô guardião, enfrentando perigos e desafios pelo caminho.</p>
+                    <a href="https://seu-usuario.itch.io" target="_blank" rel="noopener" class="botao">Jogar no itch.io</a>
+                </div>
+            </div>
+
+            <div class="jogo-card">
+                <div class="jogo-imagem">
+                    <img src="imagens/ping-pong.gif" alt="Ping Pong 2D" onerror="this.onerror=null;this.src='imagens/ping-pong.jpg'">
+                </div>
+                <div class="jogo-info">
+                    <div class="jogo-topo">
+                        <h3>Ping Pong 2D</h3>
+                        <span class="badge em-desenvolvimento">Em Desenvolvimento</span>
+                    </div>
+                    <p class="jogo-categoria">Esporte / Arcade</p>
+                    <p class="jogo-desc">Ping pong em 2D com partidas rápidas, fáceis de aprender e difíceis de largar.</p>
+                    <a href="https://seu-usuario.itch.io" target="_blank" rel="noopener" class="botao">Jogar no itch.io</a>
+                </div>
+            </div>
+
+            <div class="jogo-card">
+                <div class="jogo-imagem">
+                    <img src="imagens/iron-vanguard.jpg" alt="Iron Vanguard" onerror="this.style.display='none'">
+                </div>
+                <div class="jogo-info">
+                    <div class="jogo-topo">
+                        <h3>Iron Vanguard</h3>
+                        <span class="badge demo-disponivel">Demo Disponível</span>
+                    </div>
+                    <p class="jogo-categoria">Estratégia / RTS</p>
+                    <p class="jogo-desc">Estratégia em tempo real com tanques numa ilha: construa bases, junte recursos e monte sua defesa e seu ataque para dominar o mapa.</p>
+                    <a href="https://seu-usuario.itch.io" target="_blank" rel="noopener" class="botao">Jogar no itch.io</a>
+                </div>
+            </div>
+
+            <div class="jogo-card">
+                <div class="jogo-imagem">
+                    <img src="imagens/explosive-foxes.jpg" alt="Explosive Foxes" onerror="this.style.display='none'">
+                </div>
+                <div class="jogo-info">
+                    <div class="jogo-topo">
+                        <h3>Explosive Foxes</h3>
+                        <span class="badge em-desenvolvimento">Em Desenvolvimento</span>
+                    </div>
+                    <p class="jogo-categoria">Ação / 3D</p>
+                    <p class="jogo-desc">Jogo 3D de ação cheio de explosões, com raposas, caos e fases desafiadoras.</p>
+                    <a href="https://seu-usuario.itch.io" target="_blank" rel="noopener" class="botao">Jogar no itch.io</a>
+                </div>
+            </div>
+
+            <!-- ===== Cópias (mesma ordem) só para a rolagem contínua: depois de
+                 "Explosive Foxes" volta a aparecer "The Guardian" sem corte. ===== -->
+
+            <div class="jogo-card" aria-hidden="true">
+                <div class="jogo-imagem">
+                    <img src="imagens/the-guardian.jpg" alt="" onerror="this.style.display='none'">
+                </div>
+                <div class="jogo-info">
+                    <div class="jogo-topo">
+                        <h3>The Guardian</h3>
+                        <span class="badge em-desenvolvimento">Em Desenvolvimento</span>
+                    </div>
+                    <p class="jogo-categoria">Ação / Arcade</p>
+                    <p class="jogo-desc">Jogo 3D de ação em que você controla um pequeno robô guardião, enfrentando perigos e desafios pelo caminho.</p>
+                    <a href="https://seu-usuario.itch.io" target="_blank" rel="noopener" class="botao">Jogar no itch.io</a>
+                </div>
+            </div>
+
+            <div class="jogo-card" aria-hidden="true">
+                <div class="jogo-imagem">
+                    <img src="imagens/ping-pong.gif" alt="" onerror="this.onerror=null;this.src='imagens/ping-pong.jpg'">
+                </div>
+                <div class="jogo-info">
+                    <div class="jogo-topo">
+                        <h3>Ping Pong 2D</h3>
+                        <span class="badge em-desenvolvimento">Em Desenvolvimento</span>
+                    </div>
+                    <p class="jogo-categoria">Esporte / Arcade</p>
+                    <p class="jogo-desc">Ping pong em 2D com partidas rápidas, fáceis de aprender e difíceis de largar.</p>
+                    <a href="https://seu-usuario.itch.io" target="_blank" rel="noopener" class="botao">Jogar no itch.io</a>
+                </div>
+            </div>
+
+            <div class="jogo-card" aria-hidden="true">
+                <div class="jogo-imagem">
+                    <img src="imagens/iron-vanguard.jpg" alt="" onerror="this.style.display='none'">
+                </div>
+                <div class="jogo-info">
+                    <div class="jogo-topo">
+                        <h3>Iron Vanguard</h3>
+                        <span class="badge demo-disponivel">Demo Disponível</span>
+                    </div>
+                    <p class="jogo-categoria">Estratégia / RTS</p>
+                    <p class="jogo-desc">Estratégia em tempo real com tanques numa ilha: construa bases, junte recursos e monte sua defesa e seu ataque para dominar o mapa.</p>
+                    <a href="https://seu-usuario.itch.io" target="_blank" rel="noopener" class="botao">Jogar no itch.io</a>
+                </div>
+            </div>
+
+            <div class="jogo-card" aria-hidden="true">
+                <div class="jogo-imagem">
+                    <img src="imagens/explosive-foxes.jpg" alt="" onerror="this.style.display='none'">
+                </div>
+                <div class="jogo-info">
+                    <div class="jogo-topo">
+                        <h3>Explosive Foxes</h3>
+                        <span class="badge em-desenvolvimento">Em Desenvolvimento</span>
+                    </div>
+                    <p class="jogo-categoria">Ação / 3D</p>
+                    <p class="jogo-desc">Jogo 3D de ação cheio de explosões, com raposas, caos e fases desafiadoras.</p>
+                    <a href="https://seu-usuario.itch.io" target="_blank" rel="noopener" class="botao">Jogar no itch.io</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Bolinhas de navegação da esteira de jogos (mesmo
+         esquema de "data-index" do carrossel do banner) -->
+    <div class="jogos-dots">
+        <span class="dot active" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+        <span class="dot" data-index="3"></span>
+    </div>
+
+</section>
+
+<!-- =========================================================
+     SEÇÃO PROJETOS EM DESENVOLVIMENTO
+     Cada ".projeto-card" mostra uma imagem com o percentual de
+     progresso (canto superior esquerdo) e, ao lado, o nome,
+     status, descrição e uma barra de progresso.
+     A largura da barra (style="width:60%") deve ser atualizada
+     manualmente conforme o projeto avança - ela é independente
+     do número mostrado em ".projeto-percentual", então lembre
+     de manter os dois valores iguais.
+     ========================================================= -->
+<section id="desenvolvimento">
+
+    <h2>Projetos em Desenvolvimento</h2>
+
+    <!-- Projeto A: 15% concluído -->
+    <div class="projeto-card">
+
+        <div class="projeto-imagem">
+            <img src="imagens/the-guardian.jpg" alt="The Guardian" onerror="this.style.display='none'">
+            <span class="projeto-percentual">15%</span>
+        </div>
+
+        <div class="projeto-info">
+            <div class="projeto-topo">
+                <h3>The Guardian</h3>
+                <span class="badge em-desenvolvimento">Em Desenvolvimento</span>
+            </div>
+            <p class="projeto-genero">Jogo 3D de Ação</p>
+            <p class="projeto-desc">Jogo 3D de ação em que você controla um pequeno robô guardião, enfrentando perigos e desafios pelo caminho.</p>
+
+            <div class="progresso-container">
+                <div class="progresso-barra" style="width:15%;"></div>
+            </div>
+            <p class="progresso-label">Progresso da produção</p>
+
+            <button type="button" class="botao btn-ver-mais" aria-expanded="false" aria-controls="extra-guardian">Veja mais</button>
+
+            <div class="projeto-extra" id="extra-guardian">
+                <div class="projeto-extra-conteudo">
+                    <p>Espaço para contar mais sobre The Guardian: história, mecânicas, o que já está pronto e o que ainda falta. Substitua por sua própria descrição.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Projeto B: 15% concluído (fase de protótipo) -->
+    <div class="projeto-card">
+
+        <div class="projeto-imagem">
+            <img src="imagens/explosive-foxes.jpg" alt="Explosive Foxes" onerror="this.style.display='none'">
+            <span class="projeto-percentual">15%</span>
+        </div>
+
+        <div class="projeto-info">
+            <div class="projeto-topo">
+                <h3>Explosive Foxes</h3>
+                <span class="badge prototipo">Protótipo</span>
+            </div>
+            <p class="projeto-genero">Jogo 3D de Ação</p>
+            <p class="projeto-desc">Jogo 3D de ação cheio de explosões, com raposas, caos e fases desafiadoras.</p>
+
+            <div class="progresso-container">
+                <div class="progresso-barra" style="width:15%;"></div>
+            </div>
+            <p class="progresso-label">Progresso da produção</p>
+
+            <button type="button" class="botao btn-ver-mais" aria-expanded="false" aria-controls="extra-foxes">Veja mais</button>
+
+            <div class="projeto-extra" id="extra-foxes">
+                <div class="projeto-extra-conteudo">
+                    <p>Espaço para contar mais sobre Explosive Foxes: ideia do jogo, estilo visual, mecânicas e próximos passos. Substitua por sua própria descrição.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================================
+     SEÇÃO CONTATO
+     Grade com 3 cartões de contato. Troque os links abaixo
+     (GitHub, Itch.io e o e-mail no "mailto:") pelos seus
+     dados reais quando for publicar o site.
+     ========================================================= -->
+<section id="contato">
+
+    <h2>Contato</h2>
+
+    <p class="contato-intro">
+        Tem uma proposta, feedback ou só quer trocar uma ideia sobre desenvolvimento de jogos?
+        Fica à vontade pra me chamar em qualquer um dos canais abaixo.
+    </p>
+
+    <div class="contato-grid">
+
+        <!-- Link do GitHub -->
+        <a href="https://github.com/SupremeDeve" target="_blank" rel="noopener" class="contato-card">
+            <span class="contato-icone">🐙</span>
+            <div class="contato-texto">
+                <h3>GitHub</h3>
+                <p>Veja meu código e projetos open-source</p>
+            </div>
+        </a>
+
+        <!-- TROCAR "seu-usuario" pelo usuário real do Itch.io -->
+        <a href="https://seu-usuario.itch.io" target="_blank" rel="noopener" class="contato-card">
+            <span class="contato-icone">🎮</span>
+            <div class="contato-texto">
+                <h3>Itch.io</h3>
+                <p>Jogue meus jogos e demos publicadas</p>
+            </div>
+        </a>
+
+        <!-- E-mail de contato (link mailto e texto do cartão) -->
+        <a href="mailto:fwalterson@gmail.com" class="contato-card">
+            <span class="contato-icone">✉️</span>
+            <div class="contato-texto">
+                <h3>Email</h3>
+                <p>fwalterson@gmail.com</p>
+            </div>
+        </a>
+
+    </div>
+
+</section>
+
+<!-- Rodapé simples com o ano e o nome -->
+<footer>
+
+    © 2026 Walterson. Todos os direitos reservados.
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
