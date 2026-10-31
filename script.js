@@ -132,7 +132,7 @@ const jogosDots = document.querySelectorAll(".jogos-dots .dot");
 
 if (jogosTrack) {
 
-    const totalOriginais = 4; // número de jogos reais (sem contar as cópias duplicadas no HTML)
+    const totalOriginais = 5; // número de jogos reais (sem contar as cópias duplicadas no HTML)
     const velocidade = 55;    // velocidade da esteira em pixels por segundo (quanto maior, mais rápido)
 
     let cardStep = 0;      // largura de um card + o espaçamento (gap) entre eles

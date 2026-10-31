@@ -682,7 +682,7 @@ section h2{
 
 .jogo-info .botao{
 
-    align-self:flex-start;
+    align-self:center; /* botão centralizado no card */
 }
 
 @media(max-width:900px){
